@@ -309,7 +309,11 @@ class BigCard extends StatelessWidget {
           SizedBox(height: 20),
           Row(
             children: [
-              Icon(Icons.location_on, color: Colors.white.withOpacity(0.25), size: 18),
+              Icon(
+                Icons.location_on,
+                color: Colors.white.withOpacity(0.25),
+                size: 18,
+              ),
               SizedBox(width: 4),
               Text(
                 'Starbucks',
@@ -395,95 +399,62 @@ class EventDetailsCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      padding: EdgeInsets.all(24),
-      decoration: BoxDecoration(
-        color: Color(0xFF2A2A2A),
-        borderRadius: BorderRadius.circular(16),
-      ),
+
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          GradientText(
-            text: 'Design',
-            style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
-            gradient: LinearGradient(
-              colors: [Colors.white, Colors.grey[300]!],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
+          BigCard(),
+          SizedBox(height: 25),
+          Text(
+            'Agenda',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 15,
+              fontFamily: 'Aktiv Grotesk',
+              fontWeight: FontWeight.w800,
+              height: 1.33,
             ),
           ),
-          GradientText(
-            text: 'Workshop',
-            style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
-            gradient: LinearGradient(
-              colors: [Colors.grey[500]!, Colors.grey[700]!],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
+          SizedBox(height: 15),
+          Container(
+            width: double.infinity,
+            padding: EdgeInsets.all(10),
+            decoration: ShapeDecoration(
+              color: const Color(0x66393741),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
             ),
-          ),
-          SizedBox(height: 20),
-          Row(
-            children: [
-              Icon(Icons.location_on, color: Colors.grey[400], size: 16),
-              SizedBox(width: 4),
-              Text(
-                'Starbucks',
-                style: TextStyle(color: Colors.grey[400], fontSize: 14),
-              ),
-            ],
-          ),
-          SizedBox(height: 24),
-          Row(
-            children: [
-              CircleAvatar(
-                radius: 16,
-                backgroundColor: Colors.red,
-                child: Text(
-                  'W',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 14,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-              SizedBox(width: 8),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  GradientText(
-                    text: 'Awwwards',
-                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
-                    gradient: LinearGradient(
-                      colors: [Colors.white, Colors.grey[300]!],
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
+            child: Column(
+              children: [
+
+                AgendaItem(number: '01', title: 'Go through moodboards'),
+                Padding(
+                  padding:  EdgeInsets.symmetric(vertical: 10),
+                  child: Opacity(
+                    opacity: 0.20,
+                    child: Divider(
+                      height: 1,
+                      indent: 50,
+                      color:  Colors.white.withValues(alpha: 0.20),
                     ),
                   ),
-                  Text(
-                    '22 July at 5:00 PM',
-                    style: TextStyle(color: Colors.grey[400], fontSize: 12),
+                ),
+                AgendaItem(number: '02', title: 'Sketch initial concepts'),
+                Padding(
+                  padding:  EdgeInsets.symmetric(vertical: 10),
+                  child: Opacity(
+                    opacity: 0.20,
+                    child: Divider(
+                      height: 1,
+                      indent: 50,
+                      color:  Colors.white.withValues(alpha: 0.20),
+                    ),
                   ),
-                ],
-              ),
-            ],
-          ),
-          SizedBox(height: 24),
-          GradientText(
-            text: 'Agenda',
-            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
-            gradient: LinearGradient(
-              colors: [Colors.white, Colors.grey[400]!],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
+                ),
+                AgendaItem(number: '03', title: 'Develop wireframes'),
+              ],
             ),
-          ),
-          SizedBox(height: 16),
-          AgendaItem(number: '01', title: 'Go through moodboards'),
-          SizedBox(height: 12),
-          AgendaItem(number: '02', title: 'Sketch initial concepts'),
-          SizedBox(height: 12),
-          AgendaItem(number: '03', title: 'Develop wireframes'),
+          )
+
         ],
       ),
     );
@@ -496,105 +467,24 @@ class EventDetailsWithResourcesCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      padding: EdgeInsets.all(24),
-      decoration: BoxDecoration(
-        color: Color(0xFF2A2A2A),
-        borderRadius: BorderRadius.circular(16),
-      ),
+
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          GradientText(
-            text: 'Design',
-            style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
-            gradient: LinearGradient(
-              colors: [Colors.white, Colors.grey[300]!],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-            ),
-          ),
-          GradientText(
-            text: 'Workshop',
-            style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
-            gradient: LinearGradient(
-              colors: [Colors.grey[500]!, Colors.grey[700]!],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-            ),
-          ),
-          SizedBox(height: 20),
-          Row(
-            children: [
-              Icon(Icons.location_on, color: Colors.grey[400], size: 16),
-              SizedBox(width: 4),
-              Text(
-                'Starbucks',
-                style: TextStyle(color: Colors.grey[400], fontSize: 14),
-              ),
-            ],
-          ),
+          EventDetailsCard(),
           SizedBox(height: 24),
-          Row(
-            children: [
-              CircleAvatar(
-                radius: 16,
-                backgroundColor: Colors.red,
-                child: Text(
-                  'W',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 14,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-              SizedBox(width: 8),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Awwwards',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 14,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                  Text(
-                    '22 July at 5:00 PM',
-                    style: TextStyle(color: Colors.grey[400], fontSize: 12),
-                  ),
-                ],
-              ),
-            ],
-          ),
-          SizedBox(height: 24),
-          GradientText(
-            text: 'Agenda',
-            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
-            gradient: LinearGradient(
-              colors: [Colors.white, Colors.grey[400]!],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
+          Text(
+            'Resources',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 15,
+              fontFamily: 'Aktiv Grotesk',
+              fontWeight: FontWeight.w800,
+              height: 1.33,
             ),
           ),
-          SizedBox(height: 16),
-          AgendaItem(number: '01', title: 'Go through moodboards'),
-          SizedBox(height: 12),
-          AgendaItem(number: '02', title: 'Sketch initial concepts'),
-          SizedBox(height: 12),
-          AgendaItem(number: '03', title: 'Develop wireframes'),
-          SizedBox(height: 24),
-          GradientText(
-            text: 'Resources',
-            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
-            gradient: LinearGradient(
-              colors: [Colors.white, Colors.grey[400]!],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-            ),
-          ),
-          SizedBox(height: 16),
+
+          SizedBox(height: 15),
           Row(
             children: [
               ResourceIcon(label: 'Figma', color: Colors.purple, icon: 'F'),
@@ -625,32 +515,35 @@ class AgendaItem extends StatelessWidget {
     return Row(
       children: [
         Container(
-          width: 24,
-          height: 24,
+          width: 40,
+          height: 40,
           decoration: BoxDecoration(
             color: Color(0xFF404040),
-            borderRadius: BorderRadius.circular(4),
+            borderRadius: BorderRadius.circular(90),
           ),
           child: Center(
             child: Text(
               number,
               style: TextStyle(
-                color: Colors.grey[400],
-                fontSize: 12,
-                fontWeight: FontWeight.w600,
+                color: Colors.white.withValues(alpha: 0.50),
+                fontSize: 13,
+                fontFamily: 'Aktiv Grotesk',
+                fontWeight: FontWeight.w400,
+                height: 1.38,
+                letterSpacing: 0.26,
               ),
             ),
           ),
         ),
         SizedBox(width: 12),
-        GradientText(
-          text: title,
-          style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
-          gradient: LinearGradient(
-            colors: [Colors.white, Colors.grey[300]!],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-          ),
+        Text(
+         title,
+          style: TextStyle(color: Colors.white,
+            fontSize: 15,
+            fontFamily: 'Aktiv Grotesk',
+            fontWeight: FontWeight.w800,
+            height: 1.33,),
+
         ),
       ],
     );
@@ -673,23 +566,27 @@ class ResourceIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+      padding: EdgeInsets.only(top: 10,left: 10,right: 30,bottom: 10),
       decoration: BoxDecoration(
         color: Color(0xFF404040),
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(70),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          CircleAvatar(
-            radius: 12,
-            backgroundColor: color,
-            child: Text(
-              icon,
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 12,
-                fontWeight: FontWeight.bold,
+          Container(
+            width: 48,
+            height: 48,
+            child: CircleAvatar(
+              radius: 12,
+              backgroundColor: color,
+              child: Text(
+                icon,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 12,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
           ),
