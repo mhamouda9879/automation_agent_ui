@@ -34,6 +34,40 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
+  
+  # HTTP requests
+  http: ^1.1.0
+  
+  # State management - BLoC
+  flutter_bloc: ^8.1.4
+  bloc: ^8.1.3
+  
+  # Date and time handling
+  intl: ^0.19.0
+  
+  # Shared preferences for storing tokens
+  shared_preferences: ^2.5.3
+  
+  # JSON serialization
+  json_annotation: ^4.8.1
+  
+  # Logging
+  logger: ^2.0.2+1
+  
+  # Google Sign-In
+  google_sign_in: ^6.2.1
+  
+  # Crypto for token handling
+  crypto: ^3.0.3
+  
+  # Equatable for value equality
+  equatable: ^2.0.5
+  
+  # Dartz for functional programming
+  dartz: ^0.10.1
+  
+  # Get it for dependency injection
+  get_it: ^7.6.7
 
 dev_dependencies:
   flutter_test:
@@ -45,6 +79,10 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^5.0.0
+  
+  # JSON code generation
+  json_serializable: ^6.7.1
+  build_runner: ^2.4.7
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

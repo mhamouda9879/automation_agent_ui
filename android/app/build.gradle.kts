@@ -3,12 +3,14 @@ plugins {
     id("kotlin-android")
     // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
     id("dev.flutter.flutter-gradle-plugin")
+    // Google Services plugin for Google Sign-In
+    id("com.google.gms.google-services")
 }
 
 android {
     namespace = "com.example.testt"
     compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
+    ndkVersion = "27.0.12077973"
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
@@ -28,6 +30,11 @@ android {
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
+        
+        // Google Sign-In configuration
+        manifestPlaceholders = [
+            'appAuthRedirectScheme': 'com.example.testt'
+        ]
     }
 
     buildTypes {
@@ -41,4 +48,9 @@ android {
 
 flutter {
     source = "../.."
+}
+
+dependencies {
+    // Google Play Services for Google Sign-In
+    implementation("com.google.android.gms:play-services-auth:20.7.0")
 }
