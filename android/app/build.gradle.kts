@@ -32,9 +32,7 @@ android {
         versionName = flutter.versionName
         
         // Google Sign-In configuration
-        manifestPlaceholders = [
-            'appAuthRedirectScheme': 'com.example.testt'
-        ]
+        manifestPlaceholders["appAuthRedirectScheme"] = "com.example.testt"
     }
 
     buildTypes {
